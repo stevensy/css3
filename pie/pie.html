@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>pie</title>
+    <link rel="stylesheet" href="css.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="pie" data-value="0.8" data-attr="Base"></div>
+      <div class="pie" id="pie" data-attr="Number"></div>
+      <div class="pie" id="pie1" data-attr="Animate"></div>
+      <div class="pie" id="pie2" data-attr="Circle"></div>
+      <div class="pie" id="pie3" data-attr="ColorFul"></div> 
+      <div class="pie" id="pie4" data-attr="styleRotate"></div>
+      <div class="pie" id="pie5" data-attr="Rotate"></div> 
+    </div>
+    
+    <script src="pie.js"></script>
+    <script>
+      var  s1 = new Pie();
+      s1.init({
+        elm: ".pie",
+      });
+
+      var  s2 = new Pie();
+      s2.init({
+        elm: "#pie",
+        showNumber: true,
+        value: 0.4
+      });
+
+      var  s3 = new Pie();
+      s3.init({
+        elm: "#pie1",
+        value: 0.6,
+        showNumber: true, 
+        animite:true
+      });
+      var  s4 = new Pie();
+      s4.init({
+        elm: "#pie2",
+        value: 0.6,
+        showNumber: true,
+        animite:true,
+        circle: {
+          width: "60%",
+          height: "60%",
+          background: "#fff"
+        }
+      });
+      var  s5 = new Pie();
+      s5.init({
+        elm: "#pie3",
+        value:0.6,
+        showNumber:true,
+        animite:true,
+        circle: {
+          width: "40%",
+          height: "40%",
+          background: "yellow"
+        },
+        color:"#ff9933"
+      });
+      var  s6 = new Pie();
+      s6.init({
+        elm: "#pie4",
+        showNumber: true,
+        value: 0.9,
+        animite:true,
+        circle: {
+          width: "40%",
+          height: "40%",
+          background: "#fff"
+        }
+      });
+
+      var  s7 = new Pie();
+      s7.init({
+        elm: "#pie5",
+        showNumber: true,
+        color:"#ff6699",
+        value: 0.7,
+        animite:true,
+        rotate: -35,
+        circle: {
+          width: "40%",
+          height: "40%",
+          background: "#fff"
+        }
+      });
+     
+    </script>
+  </body>
+</html>

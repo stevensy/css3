@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>text</title>
+  <style>
+    *{padding:0;margin:0}
+    body {
+      background: #ccc;      /*设置整体的背景颜色为灰色*/
+    }
+    h1{
+      color:#ccc;
+      
+    }
+    h1:first-child {
+      text-shadow: 1px 1px 1px #000, -1px -1px 1px #fff;
+    }
+    h1:last-of-type {
+      text-shadow: -1px -1px 1px #000, 1px 1px 1px #fff;
+    }
+    h2{
+      display:inline-block;
+      font-size:40px;
+      -webkit-text-fill-color: transparent;
+      background-image:  -webkit-linear-gradient(left,#129835,#ece648 25%,#129835 50%,#F9E92B 75%,rgb(40, 150, 38));
+      -webkit-background-clip: text;
+      background-size: 200%,100%;
+      animation: word 5s linear infinite;
+    }
+    @keyframes word {
+        0%{background-position: 0 0}
+        100%{background-position: -100% 0}
+    }
+    .qixi{
+      display:block;
+      font-size:300px;
+      background-image: url('./timg2.jpg');
+      background-size: 150%, 100%;
+    }
+    .skewTxt{
+      margin: 50px 0;
+      /* font-size:0;
+      -webkit-text-size-adjust:none; */
+    }
+    .skewTxt span{      
+       width:40px;
+       height:50px;
+       line-height: 50px;
+       text-align: center;
+       display:inline-block; 
+       position:relative;
+       font-size:35px;
+       transform: skewY(-15deg);
+       transform-origin: 0 100%;
+        transition: all 0.2s;
+        color:#fff;
+    }
+    .skewTxt span:nth-child(even) {
+      background-color: rgb(185, 74, 44);
+      transform: skewY(15deg);
+      transform-origin: 100% 100%;
+       
+  }
+  .skewTxt span:nth-child(even):before {
+    transform-origin: 100% 0;
+    transform: skewY(-15deg);
+}
+    .skewTxt span:after, .skewTxt span:before {
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      content: ' ';
+      z-index: -1;
+      transition: all 0.2s;
+  }
+    .skewTxt span:before{
+      background: rgba(0,0,0,0.1);
+      transform: skewY(15deg);
+      transform-origin: 0 0;
+    }
+    .skewTxt span:after{
+      background-color: rgb(185, 74, 44);
+    }
+    
+    .skewTxt span.hover, .skewTxt span.hover:before{
+      transform: skewY(0deg);
+    }
+
+    .loading{
+      width:200px;
+      height:200px; 
+      position:relative;
+    }
+    .border{
+      margin: auto;
+      border:3px solid rgb(227, 73, 129);
+      border-radius: 50%;
+      position:absolute;
+      left:50%;
+      top:50%;
+    }
+    .in,.mid{
+      border-left-color:rgba(0,0,0,0);
+      border-right-color:rgba(0,0,0,0);
+    }
+    .in{
+      top: 40%;
+      left: 40%;
+      width: 20%;
+      height: 20%;     
+      animation: turnRound 2s linear infinite;
+    }
+    .mid{
+      top: 18%;
+      left: 18%;
+      width: 64%;
+      height: 64%;
+      animation: turnRound 2s linear infinite;   
+    }
+    .out{     
+      top: 15%;
+      left: 15%;
+      width: 70%;
+      height: 70%;
+      border-top-color:rgba(0,0,0,0);
+      border-bottom-color:rgba(0,0,0,0);    
+      animation: turnRound 2s linear reverse infinite; 
+    }
+    @keyframes turnRound {
+      from {
+        transform:rotate(0deg)
+      }
+      to{
+        transform: rotate(360deg)
+      }
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      display:block;
+      position:absolute;
+      border-radius: 50%;
+      background:rgb(227, 73, 129);
+      animation: turn 5s ease-in-out infinite, fade-in-out 5s linear infinite;
+    }
+    .an {
+      animation: turnRound 5s linear infinite;
+    }
+    @keyframes turn {
+      0% {
+        transform: scale(1, 1);
+      }
+      25% {
+        transform: scale(0.7, 0.7);
+      }
+      50% {
+        transform: scale(1, 1);
+      }
+      75% {
+        transform: scale(1.3, 1.3);
+      }
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+    @keyframes fade-in-out {
+      0% {
+        opacity: 0.8;
+      }
+      25% {
+        opacity: 0.2;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello word!</h1>
+  <h1>My word!</h1>
+
+  <h2>Happy  to you!</h2>
+  <p></p>
+  <h3 class="skewTxt">
+    <span>C</span><span>S</span><span>S</span><span>3</span>
+
+    <span>S</span><span>K</span><span>E</span><span>W</span><span>T</span><span>E</span><span>X</span><span>T</span>
+  </h3>
+  <div class="loading">
+    <div class="border in"></div>
+    <div class="border mid"></div>
+    <div class="border out"></div>
+  </div>
+  <div class="loading an" id="loading" style="margin-left:100px">
+  </div>
+  <h2 class="qixi">lalala </h2>
+  <script>
+    window.onload = function() {
+      var elm = document.querySelector(".skewTxt").getElementsByTagName("span");
+      
+      [].forEach.call(elm, function(item, index){
+        item.onmouseover = function() {
+          if(index%2===0) {
+            
+            elm[index+1].classList.add("hover");
+          }else {
+            elm[index-1].classList.add("hover");
+          }
+          item.classList.add("hover");
+        }
+        item.onmouseout = function() {
+          if(index%2===0) {
+            
+            elm[index+1].classList.remove("hover");
+          }else {
+            elm[index-1].classList.remove("hover");
+          }
+          item.classList.remove("hover");
+        }
+      })
+       
+      //loading
+      var load = document.querySelector("#loading");
+      
+      var loadingEfc = function(obj) {
+        this.elm = obj.elm;
+        this.num = obj.num;
+        this.color = obj.color;
+        this.width = obj.width || this.elm.style.width || getCss(this.elm, 'width');
+        this.dotWidth = obj.dotWidth; 
+        var r = this.width/2, skew = this.width/2-this.dotWidth/2;
+
+        for(var i=0; i<this.num; i++) {
+          var temp = document.createElement("i"), deg = (90 - 360/this.num)*i/2
+           
+           
+          temp.className = "dot";
+          var x = Math.cos(deg * Math.PI/180) * r + skew,
+              y = Math.sin(deg * Math.PI/180) * r + skew;
+         
+              var oStyle=`left:${x}px;top:${y}px;animation-delay:${(i*0.42152).toFixed(4)}s`;
+              if(this.color) {
+                oStyle+=`;background-color:${this.color}`;
+              }
+              console.log(oStyle)
+              temp.style = oStyle;
+          this.elm.appendChild(temp) 
+        }
+      }
+
+      new loadingEfc({
+        elm: load,
+        width: 200,
+        num:12,
+        dotWidth: 10,
+        color: "red"
+      }) 
+    }
+
+    function getCss(curEle, attr) {
+      var val = null;
+      if (window.getComputedStyle) {//->首先获取属性值,兼容返回的是一个函数,转换为布尔是true,不兼容返回结果是undefined,转换为布尔是false
+          var v = window.getComputedStyle(curEle, null)[attr];
+          val = v!="none" ? v : false
+          
+      } else {
+          val = curEle.currentStyle[attr];
+      }            
+      return val;
+    }
+  </script>
+</body>
+</html>
